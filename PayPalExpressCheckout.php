@@ -1,5 +1,5 @@
 <?php 
-namespace PayPalExpressCheckout;
+namespace PayPalExpressCheckoutLite;
 class PayPalExpressCheckout {
 	
 	//Setup Variables

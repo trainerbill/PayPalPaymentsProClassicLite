@@ -1,7 +1,7 @@
 <?php
 namespace DoEC;
 require('../DoExpressCheckout.php');
-use PayPalExpressCheckout\DoExpressCheckout;
+use PayPalExpressCheckoutLite\DoExpressCheckout;
 
 //Create Set Express Checkout class
 $doec = new DoExpressCheckout();

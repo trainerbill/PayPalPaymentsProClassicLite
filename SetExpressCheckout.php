@@ -1,5 +1,5 @@
 <?php
-namespace PayPalExpressCheckout;
+namespace PayPalExpressCheckoutLite;
 include('PayPalExpressCheckout.php');
 class SetExpressCheckout extends PayPalExpressCheckout{
 	

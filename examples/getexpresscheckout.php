@@ -1,7 +1,7 @@
 <?php
 namespace GetEC;
 require('../GetExpressCheckout.php');
-use PayPalExpressCheckout\GetExpressCheckout;
+use PayPalExpressCheckoutLite\GetExpressCheckout;
 
 //Create Get Express Checkout class
 $getec = new GetExpressCheckout();

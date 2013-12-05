@@ -1,7 +1,7 @@
 <?php
 namespace SetEC;
 require('../SetExpressCheckout.php');
-use PayPalExpressCheckout\SetExpressCheckout;
+use PayPalExpressCheckoutLite\SetExpressCheckout;
 
 //Create Set Express Checkout class
 $setec = new SetExpressCheckout();

@@ -17,7 +17,7 @@ $credentials = array(
 );
 $getec->setCredentials($credentials);
 
-//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/SetExpressCheckout_API_Operation_NVP/
+//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/GetExpressCheckoutDetails_API_Operation_NVP/
 $variables = array(
 		'TOKEN' => '',
 		'VERSION' => '109.0'

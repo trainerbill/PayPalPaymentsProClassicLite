@@ -17,7 +17,7 @@ $credentials = array(
 );
 $doec->setCredentials($credentials);
 
-//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/SetExpressCheckout_API_Operation_NVP/
+//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/DoExpressCheckoutPayment_API_Operation_NVP/
 $variables = array(
 	'TOKEN' => '',	
 	'PAYERID' => '',

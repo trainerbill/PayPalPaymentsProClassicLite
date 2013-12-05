@@ -1,6 +1,7 @@
 <?php
 namespace SetEC;
 require('../SetExpressCheckout.php');
+require('config.php');
 use PayPalExpressCheckoutLite\SetExpressCheckout;
 
 //Create Set Express Checkout class
@@ -9,12 +10,6 @@ $setec = new SetExpressCheckout();
 //Set sandbox mode
 $setec->setSandboxMode();
 
-//Get You api credentials https://www.paypal.com/us/cgi-bin/webscr?cmd=xpt/cps/merchant/wppro/WPProIntegrationSteps-outside 
-$credentials = array(
-		'USER'	=>	'',         //Your User
-		'PWD'	=>	'',         //Your Password
-		'SIGNATURE'	=> '',      //Your signature
-);
 $setec->setCredentials($credentials);
 
 //Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/SetExpressCheckout_API_Operation_NVP/

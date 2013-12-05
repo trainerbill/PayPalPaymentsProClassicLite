@@ -1,6 +1,16 @@
 PayPalExpressCheckout
 ==========================
 
+This tutorial is provided "AS-IS" with no warranty. This example is not to be used in a production environment. YOU (the developer) would need to ensure that your code works well with your own platform, and that you are handling data securely
+
+Setup
+==========================
+1.  git clone https://github.com/trainerbill/PayPalExpressCheckoutLite.git
+2.  Edit config.php
+3.  Presto.
+
+
+
 Goals
 ==========================
 1.  Make basic PayPal Express Checkout integrations easier

@@ -14,5 +14,6 @@ Goals
 Examples
 ==========================
 
-SetExpressCheckout:
-
+<a href="https://github.com/trainerbill/PayPalExpressCheckoutLite/blob/master/examples/setexpresscheckout.php">SetExpressCheckout</a>
+<a href="https://github.com/trainerbill/PayPalExpressCheckoutLite/blob/master/examples/getexpresscheckout.php">GetExpressCheckout</a>
+<a href="https://github.com/trainerbill/PayPalExpressCheckoutLite/blob/master/examples/doexpresscheckout.php">DoExpressCheckout</a>

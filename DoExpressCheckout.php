@@ -1,6 +1,6 @@
 <?php
 namespace PayPalExpressCheckoutLite;
-include('PayPalExpressCheckout.php');
+include_once('PayPalExpressCheckout.php');
 class DoExpressCheckout extends PayPalExpressCheckout{
 	
 	//Method

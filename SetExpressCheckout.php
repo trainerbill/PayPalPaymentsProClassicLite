@@ -11,9 +11,10 @@ class SetExpressCheckout extends PayPalExpressCheckout{
 	
 	public function __construct()
 	{
+		parent::__construct();
 		//Set Method
 		$this->method = 'SetExpressCheckout';
-		$this->call_endpoint = 'https://api-3t.paypal.com/nvp';
+		
 		
 		//setup validation parameters.  Make sure these are present before executing call.
 		$this->validation_parameters = array(

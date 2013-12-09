@@ -11,6 +11,7 @@ class DoExpressCheckout extends PayPalExpressCheckout{
 	
 	public function __construct()
 	{
+		parent::__construct();
 		//Set Method
 		$this->method = 'DoExpressCheckoutPayment';
 		

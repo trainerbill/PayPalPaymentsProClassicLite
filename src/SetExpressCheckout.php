@@ -20,7 +20,7 @@ class SetExpressCheckout extends PayPalExpressCheckout{
 		$this->validation_parameters = array(
 				'RETURNURL',
 				'CANCELURL',
-				'PAYMENTACTION',
+				'PAYMENTREQUEST_0_PAYMENTACTION',
 				'PAYMENTREQUEST_0_AMT',
 				'CURRENCYCODE',
 				'VERSION',

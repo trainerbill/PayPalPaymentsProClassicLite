@@ -1,10 +1,10 @@
 <?php
 namespace SetEC;
-require('../src/SetExpressCheckout.php');
-use PayPalExpressCheckoutLite\SetExpressCheckout;
+require('../src/SetExpressCheckoutBML.php');
+use PayPalExpressCheckoutLite\SetExpressCheckoutBML;
 
 //Create Set Express Checkout class
-$setec = new SetExpressCheckout();
+$setec = new SetExpressCheckoutBML();
 
 
 //Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/SetExpressCheckout_API_Operation_NVP/

@@ -1,21 +1,14 @@
 <?php
 namespace GetEC;
-require('../GetExpressCheckout.php');
-require('config.php');
+require('../src/GetExpressCheckout.php');
 use PayPalExpressCheckoutLite\GetExpressCheckout;
 
 //Create Get Express Checkout class
 $getec = new GetExpressCheckout();
 
-//Set sandbox mode
-$getec->setSandboxMode();
-
-
-$getec->setCredentials($credentials);
-
 //Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/GetExpressCheckoutDetails_API_Operation_NVP/
 $variables = array(
-		'TOKEN' => '',
+		'TOKEN' => $_GET['token'],	//GET token from URL
 		'VERSION' => '109.0'
 );
 
@@ -30,3 +23,20 @@ $response = $getec->getCallResponseDecoded();
 
 //Get the raw response
 $string = $getec->getCallResponse();
+?>
+
+<h3>Submitted</h3>
+<div style="max-width:800px;word-wrap:break-word;">curl -i <?php echo $getec->getCallEndpoint() ?> -d "<?php echo $getec->getCallQuery() ?>" </div>
+
+<h3>Return String</h3>
+<div style="max-width:800px;word-wrap:break-word;"><?php echo $getec->getCallResponse() ?></div>
+
+<h3>Return Decoded</h3>
+<pre>
+<?php
+$decoded = $getec->getCallResponseDecoded();
+print_r($decoded);
+?>
+</pre>
+
+<a href="doexpresscheckout.php?token=<?php echo $response['TOKEN'] ?>&payerid=<?php echo $_GET['PayerID']?>">Do Express Checkout</a>

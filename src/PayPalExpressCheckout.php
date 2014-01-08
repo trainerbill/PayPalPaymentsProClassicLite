@@ -15,7 +15,18 @@ class PayPalExpressCheckout {
 	
 	public function __construct()
 	{
-		$this->call_endpoint = 'https://api-3t.paypal.com/nvp';
+		include_once('../config/config.php');
+		if($config['environment'] == 'production')
+		{
+			$this->call_endpoint = 'https://api-3t.paypal.com/nvp';
+			$this->setCredentials($config['credentials']['production']);
+		}
+		else
+		{
+			$this->call_endpoint = 'https://api-3t.sandbox.paypal.com/nvp';
+			$this->setCredentials($config['credentials']['sandbox']);
+		}
+		
 	}
 	
 	//GET METHODS
@@ -29,11 +40,21 @@ class PayPalExpressCheckout {
 		return $this->call_response_decoded;
 	}
 	
-	//SET METHODS
-	public function setSandboxMode()
+	public function getCallEndpoint()
 	{
-		$this->call_endpoint = 'https://api-3t.sandbox.paypal.com/nvp';
+		return $this->call_endpoint;
 	}
+	
+	public function getCallQuery()
+	{
+		return $this->call_query;
+	}
+	
+	public function getCallVariables()
+	{
+		return $this->call_variables;
+	}
+	
 	
 	public function setCredentials($credentials)
 	{
@@ -71,7 +92,6 @@ class PayPalExpressCheckout {
 	public function clearCredentials()
 	{
 		$this->call_credentials = array();
-		$this->setcredentials = false;
 	}
 	
 	//Worker functions
@@ -83,6 +103,7 @@ class PayPalExpressCheckout {
 		foreach($this->call_variables as $key => $value)
 			$string .= $key . '=' . $value . '&';
 		$string .= 'METHOD='.$this->method;
+		$this->call_query = $string;
 		return $string;
 	}
 	

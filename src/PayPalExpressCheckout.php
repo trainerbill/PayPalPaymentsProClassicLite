@@ -12,6 +12,8 @@ class PayPalExpressCheckout {
 	protected $call_response;
 	protected $call_response_decoded;
 	
+	protected $checkout_experience;
+	
 	
 	public function __construct()
 	{
@@ -27,6 +29,7 @@ class PayPalExpressCheckout {
 			$this->setCredentials($config['credentials']['sandbox']);
 		}
 		
+		$this->checkout_experience = $config['experience'];
 	}
 	
 	//GET METHODS
@@ -54,6 +57,12 @@ class PayPalExpressCheckout {
 	{
 		return $this->call_variables;
 	}
+	
+	public function getCheckoutExperience()
+	{
+		return $this->checkout_experience;
+	}
+	
 	
 	
 	public function setCredentials($credentials)

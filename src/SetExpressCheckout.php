@@ -22,7 +22,7 @@ class SetExpressCheckout extends PayPalExpressCheckout{
 				'CANCELURL',
 				'PAYMENTREQUEST_0_PAYMENTACTION',
 				'PAYMENTREQUEST_0_AMT',
-				'CURRENCYCODE',
+				'PAYMENTREQUEST_0_CURRENCYCODE',
 				'VERSION',
 		);
 		

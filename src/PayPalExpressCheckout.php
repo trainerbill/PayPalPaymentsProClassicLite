@@ -17,7 +17,7 @@ class PayPalExpressCheckout {
 	
 	public function __construct()
 	{
-		include(__DIR__.'../config/config.php');
+		include(__DIR__.'/../config/config.php');
 		if($config['environment'] == 'production')
 		{
 			$this->call_endpoint = 'https://api-3t.paypal.com/nvp';

@@ -36,6 +36,10 @@ $config = array(
 			),
 		),
 
+		/*
+		 * IMPORTANT:  When you go to production delete the examples folder.  It is outputting raw API CALLs
+		*/
+		
 		'environment' => 'production',
 		'environment' => 'sandbox', 	//Uncomment for sandbox testing
 		

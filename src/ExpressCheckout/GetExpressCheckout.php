@@ -1,7 +1,8 @@
 <?php
-namespace PayPalExpressCheckoutLite;
-include_once('PayPalExpressCheckout.php');
-class DoReferenceTransaction extends PayPalExpressCheckout{
+namespace PayPalPaymentsProClassicLite\ExpressCheckout;
+include_once(__DIR__.'/../PayPalAPI.php');
+use PayPalPaymentsProClassicLite\PayPalAPI;
+class GetExpressCheckout extends PayPalAPI{
 	
 	//Method
 	protected $method;
@@ -13,14 +14,12 @@ class DoReferenceTransaction extends PayPalExpressCheckout{
 	{
 		parent::__construct();
 		//Set Method
-		$this->method = 'DoReferenceTransaction';
+		$this->call_variables['METHOD'] = 'GetExpressCheckoutDetails';
 		
 		//setup validation parameters.  Make sure these are present before executing call.
 		$this->validation_parameters = array(
-				'REFERENCEID',
-				'PAYMENTACTION',
-				'VERSION',
-				'AMT',
+				'TOKEN',
+				'VERSION'
 		);
 		
 	}

@@ -1,11 +1,9 @@
 <?php
-namespace PayPalExpressCheckoutLite;
-include_once('PayPalExpressCheckout.php');
-class GetExpressCheckout extends PayPalExpressCheckout{
-	
-	//Method
-	protected $method;
-	
+namespace PayPalPaymentsProClassicLite\DirectPayment;
+include_once(__DIR__.'/../PayPalAPI.php');
+use PayPalPaymentsProClassicLite\PayPalAPI;
+class DoVoid extends PayPalAPI{
+
 	//Validation Variables
 	protected $validation_parameters;
 	
@@ -13,12 +11,11 @@ class GetExpressCheckout extends PayPalExpressCheckout{
 	{
 		parent::__construct();
 		//Set Method
-		$this->method = 'GetExpressCheckoutDetails';
+		$this->call_variables['METHOD'] = 'DoVoid';
 		
 		//setup validation parameters.  Make sure these are present before executing call.
 		$this->validation_parameters = array(
-				'TOKEN',
-				'VERSION'
+				'AUTHORIZATIONID',
 		);
 		
 	}

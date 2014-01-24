@@ -1,6 +1,6 @@
 <?php 
-namespace PayPalExpressCheckoutLite;
-class PayPalExpressCheckout {
+namespace PayPalPaymentsProClassicLite;
+class PayPalAPI {
 	
 	//Setup Variables
 	protected $call_endpoint;
@@ -12,8 +12,7 @@ class PayPalExpressCheckout {
 	protected $call_response;
 	protected $call_response_decoded;
 	
-	protected $checkout_experience;
-	
+	public $expresscheckout_settings;
 	
 	public function __construct()
 	{
@@ -29,7 +28,12 @@ class PayPalExpressCheckout {
 			$this->setCredentials($config['credentials']['sandbox']);
 		}
 		
-		$this->checkout_experience = $config['experience'];
+		//Set Express Checkout Settings.
+		$this->expresscheckout_settings = $config['expresscheckout'];
+		
+		//Set variables
+		$this->call_variables['VERSION'] = $config['apiversion'];
+		
 	}
 	
 	//GET METHODS
@@ -93,15 +97,9 @@ class PayPalExpressCheckout {
 		}
 	}
 	
-	public function clearVariables()
-	{
-		$this->call_variables = array();
-	}
 	
-	public function clearCredentials()
-	{
-		$this->call_credentials = array();
-	}
+	
+	
 	
 	//Worker functions
 	public function getApiString()
@@ -111,7 +109,7 @@ class PayPalExpressCheckout {
 			$string .= $key . '=' . $value . '&';
 		foreach($this->call_variables as $key => $value)
 			$string .= $key . '=' . $value . '&';
-		$string .= 'METHOD='.$this->method;
+		
 		$this->call_query = $string;
 		return $string;
 	}

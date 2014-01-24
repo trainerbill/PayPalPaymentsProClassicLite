@@ -30,19 +30,24 @@ $config = array(
 				'SIGNATURE'	=> '',      //Your signature
 			),
 			'sandbox' => array(
-				'USER'	=>	'',         //Your User
-				'PWD'	=>	'',         //Your Password
-				'SIGNATURE'	=> '',      //Your signature
+				'USER'	=>	'seller_api1.awesome.com',         //Your User
+				'PWD'	=>	'1374512372',         //Your Password
+				'SIGNATURE'	=> 'Aj1PRxuNKRh0FhwjgrTLGnn515trAGwGZHW7KLOlOuyQom-IEXlq.w4w',      //Your signature
 			),
 		),
-
+		
+		//Express Checkout Configuration
+		'expresscheckout' => array(
+				'experience' => 'redirect',		//Values are "redirect" for the classic redirect or "lightbox" for lightbox
+				'useraction' => 'confirm',		//Values are "confirm" and "commit".  Confirm is recommended.  Commit is a PayNow process and executes the DoCall without redirect.	
+		),
+		
+		
 		/*
 		 * IMPORTANT:  When you go to production delete the examples folder.  It is outputting raw API CALLs
 		*/
 		
 		'environment' => 'production',
 		'environment' => 'sandbox', 	//Uncomment for sandbox testing
-		
-		'experience' => 'redirect'		//Values are "redirect" for the classic redirect or "lightbox" for lightbox
-
+		'apiversion' => '109.0',		//Version of checkout api to use
 );

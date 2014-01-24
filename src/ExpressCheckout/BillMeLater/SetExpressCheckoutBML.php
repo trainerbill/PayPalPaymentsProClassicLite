@@ -1,6 +1,7 @@
 <?php
-namespace PayPalExpressCheckoutLite;
-include_once('SetExpressCheckout.php');
+namespace PayPalPaymentsProClassicLite\ExpressCheckout\BillMeLater;
+include_once(__DIR__.'/../SetExpressCheckout.php');
+use PayPalPaymentsProClassicLite\ExpressCheckout\SetExpressCheckout;
 class SetExpressCheckoutBML extends SetExpressCheckout{
 	
 	public function __construct()

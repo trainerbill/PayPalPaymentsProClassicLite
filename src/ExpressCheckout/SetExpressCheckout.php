@@ -1,10 +1,10 @@
 <?php
-namespace PayPalExpressCheckoutLite;
-include_once('PayPalExpressCheckout.php');
-class SetExpressCheckout extends PayPalExpressCheckout{
+namespace PayPalPaymentsProClassicLite\ExpressCheckout;
+include_once(__DIR__.'/../PayPalAPI.php');
+use PayPalPaymentsProClassicLite\PayPalAPI;
+class SetExpressCheckout extends PayPalAPI{
 	
-	//Method
-	protected $method;
+	
 	
 	//Validation Variables
 	protected $validation_parameters;
@@ -12,9 +12,9 @@ class SetExpressCheckout extends PayPalExpressCheckout{
 	public function __construct()
 	{
 		parent::__construct();
-		//Set Method
-		$this->method = 'SetExpressCheckout';
 		
+		//Set Method
+		$this->call_variables['METHOD'] = 'SetExpressCheckout';
 		
 		//setup validation parameters.  Make sure these are present before executing call.
 		$this->validation_parameters = array(

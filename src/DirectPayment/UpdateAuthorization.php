@@ -2,7 +2,7 @@
 namespace PayPalPaymentsProClassicLite\DirectPayment;
 include_once(__DIR__.'/../PayPalAPI.php');
 use PayPalPaymentsProClassicLite\PayPalAPI;
-class DoCapture extends PayPalAPI{
+class UpdateAuthorization extends PayPalAPI{
 
 	//Validation Variables
 	protected $validation_parameters;
@@ -11,13 +11,11 @@ class DoCapture extends PayPalAPI{
 	{
 		parent::__construct();
 		//Set Method
-		$this->call_variables['METHOD'] = 'DoCapture';
+		$this->call_variables['METHOD'] = 'UpdateAuthorization';
 		
 		//setup validation parameters.  Make sure these are present before executing call.
 		$this->validation_parameters = array(
-				'AUTHORIZATIONID',
-				'AMT',
-				'COMPLETETYPE',
+				'TRANSACTIONID',
 		);
 		
 	}

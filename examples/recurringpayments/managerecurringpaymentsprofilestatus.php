@@ -10,7 +10,7 @@ if(!isset($_GET['profileid']))
 //Create Get Express Checkout class
 $rp = new ManageRecurringPaymentProfileStatus();
 
-//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/CreateRecurringPaymentsProfile_API_Operation_NVP/
+//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/ManageRecurringPaymentsProfileStatus_API_Operation_NVP/
 $variables = array(
 	'PROFILEID' => $_GET['profileid'],									//GET Profile ID
 	'ACTION'	=> 'Cancel',											//Cancel profile.  You can use Cancel,Suspend, or Reactivate

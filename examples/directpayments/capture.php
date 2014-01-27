@@ -9,7 +9,7 @@ if(!isset($_GET['trxid']))
 //Create Get Express Checkout class
 $dcc = new DoCapture();
 
-//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/CreateRecurringPaymentsProfile_API_Operation_NVP/
+//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/DoCapture_API_Operation_NVP/
 $variables = array(
 	'AUTHORIZATIONID' => $_GET['trxid'],
 	'AMT' => '100.00',
@@ -44,4 +44,5 @@ include('../inc/apicalloutput.php');
 <?php if($rvars['ACK'] == 'Success'):?>
 <a href="refund.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Refund Transaction</a><br/>
 <a href="../referencetransactions/rt.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Do Reference Transaction</a><br/>
+<div><a href="../transactionquery/transactiondetails.php?trxid=<?php echo $rvars['TRANSACTIONID'] ?>">Get Transaction Details</a></div>
 <?php endif;?>

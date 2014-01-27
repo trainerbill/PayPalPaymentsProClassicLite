@@ -9,7 +9,7 @@ $cba = new CreateBillingAgreement();
 if(!isset($_GET['token']))
 	die('Token not set.  You must do a Set Express Checkout First.');
 
-//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/SetExpressCheckout_API_Operation_NVP/
+//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/CreateBillingAgreement_API_Operation_NVP/
 $variables = array(
 	'TOKEN' => $_GET['token'],
 );

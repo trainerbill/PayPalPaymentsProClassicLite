@@ -2,7 +2,7 @@
 namespace PayPalPaymentsProClassicLite\ExpressCheckout;
 include_once(__DIR__.'/../PayPalAPI.php');
 use PayPalPaymentsProClassicLite\PayPalAPI;
-class Callback extends PayPalAPI{
+class CallbackResponse extends PayPalAPI{
 	
 	
 	
@@ -18,7 +18,7 @@ class Callback extends PayPalAPI{
 		
 		//setup validation parameters.  Make sure these are present before executing call.
 		$this->validation_parameters = array(
-				'TOKEN',
+				//'TOKEN',
 				//'AMT',
 				//'RETURNURL',
 				//'CANCELURL',

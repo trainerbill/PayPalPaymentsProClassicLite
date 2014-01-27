@@ -7,7 +7,7 @@ use PayPalPaymentsProClassicLite\DirectPayment\DoDirectPayment;
 //Create Get Express Checkout class
 $dcc = new DoDirectPayment();
 
-//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/CreateRecurringPaymentsProfile_API_Operation_NVP/
+//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/DoDirectPayment_API_Operation_NVP/
 $variables = array(
 	'PAYMENTACTION' => 'Authorization',
 	'AMT' => '100.00',
@@ -54,4 +54,7 @@ include('../inc/apicalloutput.php');
 <a href="void.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Void Transaction</a><br/>
 <a href="capture.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Capture Transaction</a><br/>
 <a href="../referencetransactions/rt.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Do Reference Transaction</a><br/>
+<a href="reauthorization.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Reauthorize Transaction</a><br/>
+<div><a href="../transactionquery/transactiondetails.php?trxid=<?php echo $rvars['TRANSACTIONID'] ?>">Get Transaction Details</a></div>
+<div><a href="updateauthorization.php?trxid=<?php echo $rvars['TRANSACTIONID'] ?>">Update Authorization</a></div>
 <?php endif;?>

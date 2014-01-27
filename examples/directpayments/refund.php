@@ -9,7 +9,7 @@ if(!isset($_GET['trxid']))
 //Create Get Express Checkout class
 $dcc = new RefundTransaction();
 
-//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/CreateRecurringPaymentsProfile_API_Operation_NVP/
+//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/RefundTransaction_API_Operation_NVP/
 $variables = array(
 	'TRANSACTIONID' => $_GET['trxid'],
 	'REFUNDTYPE' => 'Full',
@@ -40,3 +40,4 @@ include('../inc/apicalloutput.php');
 ?>
 
 <a href="../index.php">Back to Menu</a><br/>
+<div><a href="../transactionquery/transactiondetails.php?trxid=<?php echo $rvars['REFUNDTRANSACTIONID'] ?>">Get Transaction Details</a></div>

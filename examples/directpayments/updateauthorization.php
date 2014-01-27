@@ -1,27 +1,23 @@
 <?php
 namespace PayPalPaymentsProClassicLite\DirectPayment;
-require(__DIR__.'/../../src/DirectPayment/DoDirectPayment.php');
-use PayPalPaymentsProClassicLite\DirectPayment\DoDirectPayment;
+require(__DIR__.'/../../src/DirectPayment/UpdateAuthorization.php');
+use PayPalPaymentsProClassicLite\DirectPayment\UpdateAuthorization;
 
+if(!isset($_GET['trxid']))
+	die('You have to have a transaction id.');
 
 //Create Get Express Checkout class
-$dcc = new DoDirectPayment();
+$dcc = new UpdateAuthorization();
 
-//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/DoDirectPayment_API_Operation_NVP/
+//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/UpdateAuthorization_API_Operation_NVP/
 $variables = array(
-	'PAYMENTACTION' => 'Sale',
-	'AMT' => '100.00',
-	'IPADDRESS' => $_SERVER['REMOTE_ADDR'],
-	'ACCT' =>	'4929477536696164',				//From getcreditcardnumbers.com
-	'EXPDATE'	=> '092016',					//Any future data: MMYYYY
-	'CVV2'		=> '111',						//Any 3 digit number
-	'FIRSTNAME' => 'Fred',
-	'LASTNAME'	=> 'Flintstone',
-	'STREET'	=> '123 Bedrock Street',
-	'CITY'		=> 'Bedrock',
-	'STATE'		=> 'CA',
-	'COUNTRYCODE' => 'US', 
-	'ZIP'		=> '90210',
+	'TRANSACTIONID' => $_GET['trxid'],
+	'SHIPTONAME' => 'Wilma Flintstone',
+	'SHIPTOSTREET' => '789 OK Street',
+	'SHIPTOCITY' => 'Detroit',
+	'SHIPTOSTATE' => 'MI',
+	'SHIPTOZIP' => '48201',
+	'SHIPTOCOUNTRY' => 'US',
 );
 
 //Place the variables onto the stack
@@ -49,9 +45,10 @@ include('../inc/apicalloutput.php');
 ?>
 
 <a href="../index.php">Back to Menu</a><br/>
-
 <?php if($rvars['ACK'] == 'Success'):?>
-<a href="refund.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Refund Transaction</a><br/>
+<a href="void.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Void Transaction</a><br/>
+<a href="capture.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Capture Transaction</a><br/>
 <a href="../referencetransactions/rt.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Do Reference Transaction</a><br/>
+<a href="reauthorization.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Reauthorize Transaction</a><br/>
 <div><a href="../transactionquery/transactiondetails.php?trxid=<?php echo $rvars['TRANSACTIONID'] ?>">Get Transaction Details</a></div>
 <?php endif;?>

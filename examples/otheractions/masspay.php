@@ -1,17 +1,22 @@
 <?php
 namespace PayPalPaymentsProClassicLite\OtherActions;
-require(__DIR__.'/../../src/OtherActions/AddressVerify.php');
-use PayPalPaymentsProClassicLite\OtherActions\AddressVerify;
+require(__DIR__.'/../../src/OtherActions/MassPay.php');
+use PayPalPaymentsProClassicLite\OtherActions\MassPay;
 
 
 //Create Get Express Checkout class
-$av = new AddressVerify();
+$av = new MassPay();
 
-//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/AddressVerify_API_Operation_NVP/
+//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/MassPay_API_Operation_NVP/
 $variables = array(
-	'EMAIL' => 'buyer@awesome.com',
-	'STREET' => '1 Main St',
-	'ZIP'	=> '95131',
+	'CURRENCYCODE' => 'USD',
+	'RECEIVERTYPE' =>	'EmailAddress',
+	'L_EMAIL0'	=> 'buyer@awesome.com',
+	'L_AMT0'	=> '100.25',
+	'L_EMAIL1'	=> 'buyer1@awesome.com',
+	'L_AMT1'	=> '75.24',
+	'L_EMAIL2'	=> 'seller1@awesome.com',
+	'L_AMT2'	=> '50.87',
 );
 
 //Place the variables onto the stack

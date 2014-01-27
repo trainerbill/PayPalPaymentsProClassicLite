@@ -1,4 +1,4 @@
-PayPalExpressCheckout
+PayPalPaymentsProClassic
 ==========================
 
 This tutorial is provided "AS-IS" with no warranty. This example is not to be used in a production environment. YOU (the developer) would need to ensure that your code works well with your own platform, and that you are handling data securely
@@ -24,3 +24,9 @@ Goals
 4.  Allow developer to place custom variables on NVP string
 5.  Make it extendable and allow community to update
 6.  Make basic functions like sending the api call and decoding the response easy.
+
+
+To Do:
+==========================
+1.  EC Order/Auth/Capture
+2.  Callback

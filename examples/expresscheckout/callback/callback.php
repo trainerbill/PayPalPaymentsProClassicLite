@@ -1,9 +1,11 @@
 <?php
-namespace PayPalPaymentsProClassicLite\ExpressCheckout;
-require(__DIR__.'/../../src/ExpressCheckout/Callback.php');
-require(__DIR__.'/../../src/ExpressCheckout/GetExpressCheckout.php');
-use PayPalPaymentsProClassicLite\ExpressCheckout\Callback;
-use PayPalPaymentsProClassicLite\ExpressCheckout\GetExpressCheckout;
+//namespace PayPalPaymentsProClassicLite\ExpressCheckout\Callback;
+//require(__DIR__.'/../../src/ExpressCheckout/CallbackResponse.php');
+//require(__DIR__.'/../../src/ExpressCheckout/GetExpressCheckout.php');
+//use PayPalPaymentsProClassicLite\ExpressCheckout\CallbackResponse;
+//use PayPalPaymentsProClassicLite\ExpressCheckout\GetExpressCheckout;
+echo 'yes';
+print_r($_POST);exit;
 
 if(!isset($_GET['token']))
 	die('You need to provide a token.');
@@ -32,12 +34,10 @@ $cb = new Callback();
 //Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/SetExpressCheckout_API_Operation_NVP/
 $variables = array(
 	'TOKEN' => $_GET['token'],	
-	'SHIPTOSTREET' => '123 Bedrock Street',
-	'SHIPTOCITY'	=> 'Bedrock',
-	'SHIPTOSTATE'	=> 'CA',
-	'SHIPTOZIP'	=> '90201',
-	'SHIPTOCOUNTRY'	=> 'US',
-	'AMT' => $response['AMT'],					//From GetEC
+	'L_PAYMENTREQUEST_0_NAME0'	=>	'Test item',
+	'L_PAYMENTREQUEST_0_DESC0'	=>	'This is a very cool test item.',
+	'L_PAYMENTREQUEST_0_AMT0'	=>	'100.00',
+	'L_PAYMENTREQUEST_0_QTY0'	=>	'1',
 );
 
 //Place the variables onto the stack

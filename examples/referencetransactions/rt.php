@@ -13,7 +13,7 @@ elseif(isset($_GET['trxid']))
 else
 	die('You have to have a transaction id or billing agreement id.');
 
-//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/DoExpressCheckoutPayment_API_Operation_NVP/
+//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/DoReferenceTransaction_API_Operation_NVP/
 $variables = array(
 	'REFERENCEID' => $id,			//GET Reference ID
 	'PAYMENTACTION' => 'Sale',		

@@ -7,7 +7,7 @@ use PayPalPaymentsProClassicLite\DirectPayment\DoNonReferencedCredit;
 //Create Get Express Checkout class
 $dcc = new DoNonReferencedCredit();
 
-//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/CreateRecurringPaymentsProfile_API_Operation_NVP/
+//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/DoNonReferencedCredit_API_Operation_NVP/
 $variables = array(
 	
 	'AMT' => '100.00',

@@ -9,7 +9,7 @@ $uba = new UpdateBillingAgreement();
 if(!isset($_GET['baid']))
 	die('Billing Agreement ID not set.');
 
-//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/SetExpressCheckout_API_Operation_NVP/
+//Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/BAUpdate_API_Operation_NVP/
 $variables = array(
 	'REFERENCEID' => $_GET['baid'],
 	'BILLINGAGREEMENTSTATUS' => 'Canceled',		//Cancel BA

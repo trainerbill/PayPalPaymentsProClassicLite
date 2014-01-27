@@ -1,24 +1,37 @@
 <?php
-namespace PayPalPaymentsProClassicLite\ExpressCheckout;
-require(__DIR__.'/../../../src/ExpressCheckout/SetExpressCheckout.php');
-use PayPalPaymentsProClassicLite\ExpressCheckout\SetExpressCheckout;
+namespace PayPalPaymentsProClassicLite\ExpressCheckout\Callback;
+require(__DIR__.'/../../../src/ExpressCheckout/Callback/SetExpressCheckoutCallback.php');
+use PayPalPaymentsProClassicLite\ExpressCheckout\Callback\SetExpressCheckoutCallback;
 
 //Create Set Express Checkout class
-$setec = new SetExpressCheckout();
+$setec = new SetExpressCheckoutCallback();
 
 //Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/SetExpressCheckout_API_Operation_NVP/
 $variables = array(
 	'RETURNURL' => 'http://'.$_SERVER['HTTP_HOST'].'/PayPalExpressCheckoutLite/examples/expresscheckout/getexpresscheckout.php',	
 	'CANCELURL' => 'http://'.$_SERVER['HTTP_HOST'].'/PayPalExpressCheckoutLite/examples/expresscheckout/cancel.php',
-	'PAYMENTREQUEST_0_AMT' => '100.00',
+	'PAYMENTREQUEST_0_AMT' => '105.00',
+	'PAYMENTREQUEST_0_ITEMAMT'	=> '100.00',
+	'PAYMENTREQUEST_0_SHIPPINGAMT' => '5.00',
 	'PAYMENTREQUEST_0_CURRENCYCODE' => 'USD',
 	'PAYMENTREQUEST_0_PAYMENTACTION' => 'Sale',  //Valid values are Sale,Authorization,Order
 	
-	//Create Billing Agreement
-	'BILLINGTYPE' => 'MerchantInitiatedBilling',
+	//Set Callback URL
+	'CALLBACK' => 'http://10.248.138.86/PayPalExpressCheckoutLite/examples/expresscheckout/callback/callback.php',
+	'MAXAMT'	=> '150.00',
+	'CALLBACKTIMEOUT'	=> '6',
+	
+	//Set Flat rate shipping amount and name.  Required if CALLBACK URL is set
+	'L_SHIPPINGOPTIONAMOUNT0' => '5.00',
+	'L_SHIPPINGOPTIONNAME0'	  => 'FlatRate',
+	'L_SHIPPINGOPTIONISDEFAULT0' => 'true',
+	
+	//Setup Line item.  1 Line item required for callback
+	'L_PAYMENTREQUEST_0_NAME0'	=>	'Test item',
+	'L_PAYMENTREQUEST_0_DESC0'	=>	'This is a very cool test item.',
+	'L_PAYMENTREQUEST_0_AMT0'	=>	'100.00',
+	'L_PAYMENTREQUEST_0_QTY0'	=>	'1',
 		
-	//This variable is not required.  I am using it for process flow
-	'PAYMENTREQUEST_0_CUSTOM' => 'BillingAgreement',	
 );
 
 //Place the variables onto the stack

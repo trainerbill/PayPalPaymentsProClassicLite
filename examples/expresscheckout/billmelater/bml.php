@@ -9,8 +9,8 @@ $setec = new SetExpressCheckoutBML();
 
 //Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/SetExpressCheckout_API_Operation_NVP/
 $variables = array(
-	'RETURNURL' => 'http://localhost/PayPalExpressCheckoutLite/examples/getexpresscheckout.php',	
-	'CANCELURL' => 'http://localhost/PayPalExpressCheckoutLite/examples/cancel.php',
+	'RETURNURL' => 'http://localhost/PayPalPaymentsProClassicLite/examples/getexpresscheckout.php',	
+	'CANCELURL' => 'http://localhost/PayPalPaymentsProClassicLite/examples/cancel.php',
 	'PAYMENTREQUEST_0_AMT' => '100.00',
 	'PAYMENTREQUEST_0_CURRENCYCODE' => 'USD',
 	'PAYMENTREQUEST_0_PAYMENTACTION' => 'Sale',  //Valid values are Sale,Authorization,Order

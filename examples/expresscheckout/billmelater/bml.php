@@ -41,7 +41,7 @@ include(__DIR__.'/../../inc/header.php');
 include(__DIR__.'/../../inc/apicalloutput.php');
 ?>
 
-<a class="btn btn-default" href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=confirm&token=<?php echo $rvars['TOKEN'] ?>">Redirect to PayPal</a>
+<a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=confirm&token=<?php echo $rvars['TOKEN'] ?>"><img src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_bml_SM.png" alt="BML" /></a>
 
 <?php 
 /*

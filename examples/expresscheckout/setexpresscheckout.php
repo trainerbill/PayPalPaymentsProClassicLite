@@ -45,7 +45,7 @@ include(__DIR__.'/../inc/apicalloutput.php');
 <a class="btn btn-default" href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=<?php echo $rvars['TOKEN'] ?>">Redirect to PayPal</a><br/>
 <?php elseif($setec->expresscheckout_settings['experience'] == 'lightbox'): ?>
 
-<a class="btn btn-default" href="https://www.paypal.com/checkoutnow?token=<?php echo $rvars['TOKEN']?>" data-paypal-button="true">Lightbox</a>
+<a class="btn btn-default" href="https://www.sandbox.paypal.com/checkoutnow?token=<?php echo $rvars['TOKEN']?>" data-paypal-button="true">Lightbox</a>
 <script type="text/javascript">
     (function(d, s, id){
       var js, ref = d.getElementsByTagName(s)[0];

@@ -30,15 +30,15 @@ $config = array(
 				'SIGNATURE'	=> '',      //Your signature
 			),
 			'sandbox' => array(
-				'USER'	=>	'seller_api1.awesome.com',         //Your User
-				'PWD'	=>	'1374512372',         //Your Password
-				'SIGNATURE'	=> 'Aj1PRxuNKRh0FhwjgrTLGnn515trAGwGZHW7KLOlOuyQom-IEXlq.w4w',      //Your signature
+				'USER'	=>	'',         //Your User
+				'PWD'	=>	'',         //Your Password
+				'SIGNATURE'	=> '',      //Your signature
 			),
 		),
 		
 		//Express Checkout Configuration
 		'expresscheckout' => array(
-				'experience' => 'lightbox',		//Values are "redirect" for the classic redirect or "lightbox" for lightbox
+				'experience' => 'redirect',		//Values are "redirect" for the classic redirect or "lightbox" for lightbox
 				'useraction' => 'confirm',		//Values are "confirm" and "commit".  Confirm is recommended.  Commit is a PayNow process and executes the DoCall without redirect.	
 		),
 		

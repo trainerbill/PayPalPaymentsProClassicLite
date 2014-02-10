@@ -42,13 +42,14 @@ $rstring = $setec->getCallResponse();
 //Get Endpoint
 $endpoint = $setec->getCallEndpoint();
 
-include('../../inc/apicalloutput.php');
+include(__DIR__.'/../../inc/header.php');
+include(__DIR__.'/../../inc/apicalloutput.php');
 ?>
 
 <?php if($setec->expresscheckout_settings['experience'] == 'redirect'):?>
-<a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=<?php echo $rvars['TOKEN'] ?>">Redirect to PayPal</a>
+<a class="btn btn-default" href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=<?php echo $rvars['TOKEN'] ?>">Redirect to PayPal</a>
 <?php elseif($setec->expresscheckout_settings['experience'] == 'lightbox'): ?>
-<a href="https://www.sandbox.paypal.com/checkoutnow?token=<?php echo $rvars['TOKEN']?>" data-paypal-button="true">Lightbox</a>
+<a class="btn btn-default" href="https://www.sandbox.paypal.com/checkoutnow?token=<?php echo $rvars['TOKEN']?>" data-paypal-button="true">Lightbox</a>
 <?php endif;?>
 
 
@@ -64,4 +65,4 @@ else
 	header('Location: https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=confirm&token='.$response['TOKEN']);
  * 
  */
-
+include(__DIR__.'/../../inc/footer.php');

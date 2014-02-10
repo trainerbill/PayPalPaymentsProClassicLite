@@ -41,14 +41,16 @@ $rstring = $rt->getCallResponse();
 //Get Endpoint
 $endpoint = $rt->getCallEndpoint();
 
-include('../inc/apicalloutput.php');
+include(__DIR__.'/../inc/header.php');
+include(__DIR__.'/../inc/apicalloutput.php');
 ?>
 
-<a href="../index.php">Back to Menu</a><br/>
+<a class="btn btn-default" href="../index.php">Back to Menu</a>
 <?php if($rvars['ACK'] == 'Success'):?>
 	<?php if($svars['PAYMENTACTION'] == 'Sale'): ?>
-		<a href="../directpayments/refund.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Refund Transaction</a><br/>
+		<a class="btn btn-default" href="../directpayments/refund.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Refund Transaction</a>
 	<?php endif;?>
 
-<a href="../referencetransactions/rt.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Do Reference Transaction</a><br/>
+<a class="btn btn-default" href="../referencetransactions/rt.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Do Reference Transaction</a>
 <?php endif;?>
+<?php include(__DIR__.'/../inc/footer.php');?>

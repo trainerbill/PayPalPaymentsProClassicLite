@@ -36,24 +36,31 @@ $rstring = $getec->getCallResponse();
 //Get Endpoint
 $endpoint = $getec->getCallEndpoint();
 
-include('../inc/apicalloutput.php');
+include(__DIR__.'/../inc/header.php');
+include(__DIR__.'/../inc/apicalloutput.php');
 ?>
 
-<a href="doexpresscheckout.php?token=<?php echo $rvars['TOKEN'] ?>&payerid=<?php echo $rvars['PAYERID']?>">Do Express Checkout</a><br/>
+<a class="btn btn-default" href="doexpresscheckout.php?token=<?php echo $rvars['TOKEN'] ?>&payerid=<?php echo $rvars['PAYERID']?>">Do Express Checkout</a>
 
 <?php if(isset($rvars['CUSTOM'])) :?>
-<p>
+
 	<?php if($rvars['CUSTOM'] == 'BillingAgreement'):?>
+	<div class="alert alert-warning">
 	You can create a billing agreement without actually charging the customer by clicking the link below.  Otherwise Select do express checkout to charge the customer
-	and create a billing agreement.</p>
-	<a href="billingagreements/createbillingagreement.php?token=<?php echo $rvars['TOKEN'] ?>">Create Billing Agreement</a><br/>
+	and create a billing agreement.
+		<div><a class="btn btn-default" href="billingagreements/createbillingagreement.php?token=<?php echo $rvars['TOKEN'] ?>">Create Billing Agreement</a></div>
+	</div>
+	
 	<?php endif;?>
 
 	<?php if($rvars['CUSTOM'] == 'RecurringPayment'):?>
-	<div>
+	<div class="alert alert-warning">
 		You can choose to create a recurring payments profile now which will not charge the customer until the profile runs.  Otherwise you can do the
 		do express checkout call, which will charge the customer immediately, and then setup the recurring payments profile.
+		<div><a class="btn btn-default" href="recurringpayments/createrecurringpaymentsprofile.php?token=<?php echo $rvars['TOKEN'] ?>">Create Recurring Payment Profile</a></div>
 	</div>
-	<a href="recurringpayments/createrecurringpaymentsprofile.php?token=<?php echo $rvars['TOKEN'] ?>">Create Recurring Payment Profile</a><br/>
+	
 	<?php endif;?>
 <?php endif;?>
+
+<?php include(__DIR__.'/../inc/footer.php');?>

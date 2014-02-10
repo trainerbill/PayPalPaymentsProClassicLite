@@ -1,3 +1,6 @@
+<?php 
+include(__DIR__.'/../inc/header.php');
+?>
 You cancelled the order.
 
 <script>
@@ -16,3 +19,4 @@ if (window != top) {
 top.location.replace(document.location);
 }
 </script>
+<?php include(__DIR__.'/../inc/footer.php');?>

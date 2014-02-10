@@ -36,7 +36,10 @@ $rstring = $uba->getCallResponse();
 //Get Endpoint
 $endpoint = $uba->getCallEndpoint();
 
-include('../../inc/apicalloutput.php');
+include(__DIR__.'/../../inc/header.php');
+include(__DIR__.'/../../inc/apicalloutput.php');
 ?>
 
-<a href="../../index.php">Back to Home</a><br/>
+<a class="btn btn-default" href="../../index.php">Back to Home</a>
+
+<?php include(__DIR__.'/../../inc/footer.php');?>

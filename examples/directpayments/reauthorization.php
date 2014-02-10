@@ -36,16 +36,19 @@ $rstring = $dcc->getCallResponse();
 //Get Endpoint
 $endpoint = $dcc->getCallEndpoint();
 
-include('../inc/apicalloutput.php');
+include(__DIR__.'/../inc/header.php');
+include(__DIR__.'/../inc/apicalloutput.php');
 ?>
 
 <h3 style="color:red">Reauthorization can only take place after the honor period which is 3 days be default.</h3>
 
-<a href="../index.php">Back to Menu</a><br/>
+<a class="btn btn-default" href="../index.php">Back to Menu</a>
 
 <?php if($rvars['ACK'] == 'Success'):?>
-<a href="void.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Void Transaction</a><br/>
-<a href="capture.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Capture Transaction</a><br/>
-<a href="../referencetransactions/rt.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Do Reference Transaction</a><br/>
-<div><a href="../transactionquery/transactiondetails.php?trxid=<?php echo $rvars['TRANSACTIONID'] ?>">Get Transaction Details</a></div>
+<a class="btn btn-default" href="void.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Void Transaction</a>
+<a class="btn btn-default" href="capture.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Capture Transaction</a>
+<a class="btn btn-default" href="../referencetransactions/rt.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Do Reference Transaction</a>
+<a class="btn btn-default" href="../transactionquery/transactiondetails.php?trxid=<?php echo $rvars['TRANSACTIONID'] ?>">Get Transaction Details</a>
 <?php endif;?>
+
+<?php include(__DIR__.'/../inc/footer.php');?>

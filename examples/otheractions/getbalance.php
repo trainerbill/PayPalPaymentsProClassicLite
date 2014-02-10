@@ -33,7 +33,9 @@ $rstring = $gb->getCallResponse();
 //Get Endpoint
 $endpoint = $gb->getCallEndpoint();
 
-include('../inc/apicalloutput.php');
+include(__DIR__.'/../inc/header.php');
+include(__DIR__.'/../inc/apicalloutput.php');
 ?>
 
-<a href="../index.php">Back to Menu</a><br/>
+<a class="btn btn-default" href="../index.php">Back to Menu</a>
+<?php include(__DIR__.'/../inc/footer.php');?>

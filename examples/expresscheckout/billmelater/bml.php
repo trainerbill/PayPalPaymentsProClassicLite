@@ -37,10 +37,11 @@ $rstring = $setec->getCallResponse();
 //Get Endpoint
 $endpoint = $setec->getCallEndpoint();
 
-include('../../inc/apicalloutput.php');
+include(__DIR__.'/../../inc/header.php');
+include(__DIR__.'/../../inc/apicalloutput.php');
 ?>
 
-<a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=confirm&token=<?php echo $rvars['TOKEN'] ?>">Redirect to PayPal</a>
+<a class="btn btn-default" href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=confirm&token=<?php echo $rvars['TOKEN'] ?>">Redirect to PayPal</a>
 
 <?php 
 /*
@@ -54,3 +55,4 @@ else
  * 
  */
 
+include(__DIR__.'/../../inc/footer.php');

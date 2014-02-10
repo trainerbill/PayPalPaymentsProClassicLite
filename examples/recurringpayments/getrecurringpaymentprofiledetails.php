@@ -36,13 +36,16 @@ $rstring = $rp->getCallResponse();
 //Get Endpoint
 $endpoint = $rp->getCallEndpoint();
 
-include('../inc/apicalloutput.php');
+include(__DIR__.'/../inc/header.php');
+include(__DIR__.'/../inc/apicalloutput.php');
 ?>
 
-<a href="../index.php">Back to Menu</a><br/>
+<a class="btn btn-default" href="../index.php">Back to Menu</a>
 
 <?php if($rvars['STATUS'] != 'Cancelled'):?>
-<a href="updaterecurringpaymentsprofile.php?profileid=<?php echo $rvars['PROFILEID']?>">Update Recurring Payments Profile</a><br/>
-<a href="managerecurringpaymentsprofilestatus.php?profileid=<?php echo $rvars['PROFILEID']?>">Manage Recurring Payments Profile Status</a><br/>
-<a href="billoutstandingamount.php?profileid=<?php echo $rvars['PROFILEID']?>">Bill Outstanding Amount</a><br/>
+<a class="btn btn-default" href="updaterecurringpaymentsprofile.php?profileid=<?php echo $rvars['PROFILEID']?>">Update Recurring Payments Profile</a>
+<a class="btn btn-default" href="managerecurringpaymentsprofilestatus.php?profileid=<?php echo $rvars['PROFILEID']?>">Manage Recurring Payments Profile Status</a>
+<a class="btn btn-default" href="billoutstandingamount.php?profileid=<?php echo $rvars['PROFILEID']?>">Bill Outstanding Amount</a>
 <?php endif;?>
+
+<?php include(__DIR__.'/../inc/footer.php');?>

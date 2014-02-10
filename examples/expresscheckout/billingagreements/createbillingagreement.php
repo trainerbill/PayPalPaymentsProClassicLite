@@ -35,9 +35,12 @@ $rstring = $cba->getCallResponse();
 //Get Endpoint
 $endpoint = $cba->getCallEndpoint();
 
-include('../../inc/apicalloutput.php');
+include(__DIR__.'/../../inc/header.php');
+include(__DIR__.'/../../inc/apicalloutput.php');
 ?>
 
-<a href="../../index.php">Back to Home</a><br/>
-<a href="updatebillingagreement.php?baid=<?php echo $rvars['BILLINGAGREEMENTID']?>">Update Billing Agreement</a><br/>
-<a href="../../referencetransactions/rt.php?baid=<?php echo $rvars['BILLINGAGREEMENTID']?>">Do Reference Transaction</a>
+<a class="btn btn-default" href="../../index.php">Back to Home</a>
+<a class="btn btn-default" href="updatebillingagreement.php?baid=<?php echo $rvars['BILLINGAGREEMENTID']?>">Update Billing Agreement</a>
+<a class="btn btn-default" href="../../referencetransactions/rt.php?baid=<?php echo $rvars['BILLINGAGREEMENTID']?>">Do Reference Transaction</a>
+
+<?php include(__DIR__.'/../../inc/footer.php');?>

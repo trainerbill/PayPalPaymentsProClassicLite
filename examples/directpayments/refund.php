@@ -36,8 +36,11 @@ $rstring = $dcc->getCallResponse();
 //Get Endpoint
 $endpoint = $dcc->getCallEndpoint();
 
-include('../inc/apicalloutput.php');
+include(__DIR__.'/../inc/header.php');
+include(__DIR__.'/../inc/apicalloutput.php');
 ?>
 
-<a href="../index.php">Back to Menu</a><br/>
-<div><a href="../transactionquery/transactiondetails.php?trxid=<?php echo $rvars['REFUNDTRANSACTIONID'] ?>">Get Transaction Details</a></div>
+<a class="btn btn-default" href="../index.php">Back to Menu</a>
+<a class="btn btn-default" href="../transactionquery/transactiondetails.php?trxid=<?php echo $rvars['REFUNDTRANSACTIONID'] ?>">Get Transaction Details</a>
+
+<?php include(__DIR__.'/../inc/footer.php');?>

@@ -37,8 +37,10 @@ $rstring = $rp->getCallResponse();
 //Get Endpoint
 $endpoint = $rp->getCallEndpoint();
 
-include('../inc/apicalloutput.php');
+include(__DIR__.'/../inc/header.php');
+include(__DIR__.'/../inc/apicalloutput.php');
 ?>
 
-<a href="../index.php">Back to Menu</a><br/>
-<a href="getrecurringpaymentprofiledetails.php?profileid=<?php echo $rvars['PROFILEID']?>">Get Recurring Payment Profile Details</a>
+<a class="btn btn-default" href="../index.php">Back to Menu</a>
+<a class="btn btn-default" href="getrecurringpaymentprofiledetails.php?profileid=<?php echo $rvars['PROFILEID']?>">Get Recurring Payment Profile Details</a>
+<?php include(__DIR__.'/../inc/footer.php');?>

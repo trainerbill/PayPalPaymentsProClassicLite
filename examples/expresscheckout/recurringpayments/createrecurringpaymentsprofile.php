@@ -60,9 +60,12 @@ $rstring = $rp->getCallResponse();
 //Get Endpoint
 $endpoint = $rp->getCallEndpoint();
 
-include('../../inc/apicalloutput.php');
+include(__DIR__.'/../../inc/header.php');
+include(__DIR__.'/../../inc/apicalloutput.php');
 ?>
 
-<a href="../../index.php">Back to Menu</a><br/>
-<a href="../../recurringpayments/getrecurringpaymentprofiledetails.php?profileid=<?php echo $rvars['PROFILEID']?>">Get Recurring Payment Profile Details</a><br/>
-<a href="../../recurringpayments/updaterecurringpaymentsprofile.php?profileid=<?php echo $rvars['PROFILEID']?>">Update Recurring Payments Profile</a>
+<a class="btn btn-default" href="../../index.php">Back to Menu</a>
+<a class="btn btn-default" href="../../recurringpayments/getrecurringpaymentprofiledetails.php?profileid=<?php echo $rvars['PROFILEID']?>">Get Recurring Payment Profile Details</a>
+<a class="btn btn-default" href="../../recurringpayments/updaterecurringpaymentsprofile.php?profileid=<?php echo $rvars['PROFILEID']?>">Update Recurring Payments Profile</a>
+
+<?php include(__DIR__.'/../../inc/footer.php');?>

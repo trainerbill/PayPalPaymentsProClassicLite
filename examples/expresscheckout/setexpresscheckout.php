@@ -36,17 +36,27 @@ $rstring = $setec->getCallResponse();
 //Get Endpoint
 $endpoint = $setec->getCallEndpoint();
 
-include('../inc/apicalloutput.php');
+include(__DIR__.'/../inc/header.php');
+include(__DIR__.'/../inc/apicalloutput.php');
 ?>
 
 
 <?php if($setec->expresscheckout_settings['experience'] == 'redirect'):?>
-<a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=<?php echo $rvars['TOKEN'] ?>">Redirect to PayPal</a><br/>
+<a class="btn btn-default" href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=<?php echo $rvars['TOKEN'] ?>">Redirect to PayPal</a><br/>
 <?php elseif($setec->expresscheckout_settings['experience'] == 'lightbox'): ?>
-<a href="https://www.sandbox.paypal.com/checkoutnow?token=<?php echo $rvars['TOKEN']?>" data-paypal-button="true">Lightbox</a><br/>
-<?php endif;?>
-<a href="callback.php?token=<?php echo $rvars['TOKEN']?>">Do Callback</a><br/>
 
+<a class="btn btn-default" href="https://www.sandbox.paypal.com/checkoutnow?token=<?php echo $rvars['TOKEN']?>" data-paypal-button="true">Lightbox</a>
+<script type="text/javascript">
+    (function(d, s, id){
+      var js, ref = d.getElementsByTagName(s)[0];
+      if (!d.getElementById(id)){
+        js = d.createElement(s); js.id = id; js.async = true;
+        js.src = "//www.paypalobjects.com/js/external/paypal.js";
+        ref.parentNode.insertBefore(js, ref);
+      }
+    }(document, "script", "paypal-js"));
+</script>
+<?php endif;?>
 <?php 
 
 /*
@@ -59,4 +69,4 @@ else
 	header('Location: https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=confirm&token='.$response['TOKEN']);
  * 
  */
-
+include(__DIR__.'/../inc/footer.php');

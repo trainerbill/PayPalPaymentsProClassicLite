@@ -13,8 +13,6 @@ $variables = array(
 	'PAYMENTREQUEST_0_AMT' => '100.00',
 	'PAYMENTREQUEST_0_CURRENCYCODE' => 'USD',
 	'PAYMENTREQUEST_0_PAYMENTACTION' => 'Sale',  //Valid values are Sale,Authorization,Order
-	'REQBILLINGADDRESS' => 1,
-	'NOSHIPPING' => 1,
 		
 	//Line Items
 

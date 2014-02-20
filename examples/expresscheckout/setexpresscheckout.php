@@ -8,12 +8,21 @@ $setec = new SetExpressCheckout();
 
 //Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/SetExpressCheckout_API_Operation_NVP/
 $variables = array(
-	'RETURNURL' => 'http://'.$_SERVER['HTTP_HOST'].'/PayPalPaymentsProClassicLite/examples/expresscheckout/getexpresscheckout.php',	
-	'CANCELURL' => 'http://'.$_SERVER['HTTP_HOST'].'/PayPalPaymentsProClassicLite/examples/cancel.php',
+	'RETURNURL' => 'https://'.$_SERVER['HTTP_HOST'].'/PayPalPaymentsProClassicLite/examples/expresscheckout/getexpresscheckout.php',	
+	'CANCELURL' => 'https://'.$_SERVER['HTTP_HOST'].'/PayPalPaymentsProClassicLite/examples/cancel.php',
 	'PAYMENTREQUEST_0_AMT' => '100.00',
 	'PAYMENTREQUEST_0_CURRENCYCODE' => 'USD',
 	'PAYMENTREQUEST_0_PAYMENTACTION' => 'Sale',  //Valid values are Sale,Authorization,Order
 );
+
+//Set HTTPS for lightbox
+if($setec->expresscheckout_settings['experience'] == 'lightbox')
+{
+	$variables['RETURNURL'] = 'https://'.$_SERVER['HTTP_HOST'].'/PayPalPaymentsProClassicLite/examples/expresscheckout/lightboxreturn.php';
+	$variables['CANCELURL'] = 'https://'.$_SERVER['HTTP_HOST'].'/PayPalPaymentsProClassicLite/examples/cancel.php';
+	
+	
+}
 
 //Place the variables onto the stack
 $setec->pushVariables($variables);

@@ -25,7 +25,7 @@ class TransactionSearchTest extends \PHPUnit_Framework_TestCase
 		//Transaction Search
 		$ts = new TransactionSearch();
 		$variables = array(
-			'STARTDATE' => date('Y-m-d\TG:i:s',strtotime('-1hour')),		//Set Start date to a week ago
+			'STARTDATE' => date('Y-m-d\TG:i:s',strtotime('-15minutes')),		//Set Start date to a week ago
 			'ENDDATE' => date('Y-m-d\TG:i:s'),								//Set End Date to now
 		);
 		$ts->pushVariables($variables);

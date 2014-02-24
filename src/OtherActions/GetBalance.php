@@ -13,6 +13,8 @@ class GetBalance extends PayPalAPI{
 		//Set Method
 		$this->call_variables['METHOD'] = 'GetBalance';
 		
+		$this->validation_parameters = array();
+		
 	}
 	
 }

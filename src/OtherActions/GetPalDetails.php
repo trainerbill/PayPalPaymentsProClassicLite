@@ -13,6 +13,8 @@ class GetPalDetails extends PayPalAPI{
 		//Set Method
 		$this->call_variables['METHOD'] = 'GetPalDetails';
 		
+		$this->validation_parameters = array();
+		
 	}
 	
 }

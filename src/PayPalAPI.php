@@ -4,6 +4,8 @@ class PayPalAPI {
 	
 	//Setup Variables
 	protected $call_endpoint;
+	protected $validation_parameters;
+	protected $environment;
 	
 	//Call Variables
 	protected $call_credentials;
@@ -17,6 +19,7 @@ class PayPalAPI {
 	public function __construct()
 	{
 		include(__DIR__.'/../config/config.php');
+		$this->environment = $config['environment'];
 		if($config['environment'] == 'production')
 		{
 			$this->call_endpoint = 'https://api-3t.paypal.com/nvp';
@@ -67,6 +70,21 @@ class PayPalAPI {
 		return $this->checkout_experience;
 	}
 	
+	public function getCredentials()
+	{
+		return $this->call_credentials;
+	}
+	
+	public function getEnvironment()
+	{
+		return $this->environment;
+	}
+	
+	public function getValidationParameters()
+	{
+		return $this->validation_parameters;
+	}
+	
 	
 	
 	public function setCredentials($credentials)
@@ -83,7 +101,8 @@ class PayPalAPI {
 		if(!array_key_exists('SIGNATURE',$credentials))
 			throw new \Exception(__METHOD__.': argument must contain a SIGNATURE key');
 		
-		$this->call_credentials = $credentials;		
+		$this->call_credentials = $credentials;
+		return $this->call_credentials;	
 	}
 	
 	public function pushVariables($variables)
@@ -97,8 +116,15 @@ class PayPalAPI {
 		}
 	}
 	
+	public function clearVariables()
+	{
+		$this->call_variables = array();
+	}
 	
-	
+	public function clearCredentials()
+	{
+		$this->call_credentials = array();
+	}
 	
 	
 	//Worker functions

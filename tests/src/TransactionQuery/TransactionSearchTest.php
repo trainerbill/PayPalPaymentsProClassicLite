@@ -25,13 +25,13 @@ class TransactionSearchTest extends \PHPUnit_Framework_TestCase
 		//Transaction Search
 		$ts = new TransactionSearch();
 		$variables = array(
-			'STARTDATE' => date('Y-m-d\TG:i:s',strtotime('-15minutes')),		//Set Start date to a week ago
+			'STARTDATE' => date('Y-m-d\TG:i:s',strtotime('-2minutes')),		//Set Start date to a week ago
 			'ENDDATE' => date('Y-m-d\TG:i:s'),								//Set End Date to now
 		);
 		$ts->pushVariables($variables);
 		$ts->executeCall();
 		$response = $ts->getCallResponseDecoded();
-		print_r($response);
+		//print_r($response);
 		$this->assertEquals($response['ACK'],'Success');
 	}
 	

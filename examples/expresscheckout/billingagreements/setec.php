@@ -8,8 +8,8 @@ $setec = new SetExpressCheckout();
 
 //Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/SetExpressCheckout_API_Operation_NVP/
 $variables = array(
-	'RETURNURL' => 'http://'.$_SERVER['HTTP_HOST'].'/PayPalPaymentsProClassicLite/examples/expresscheckout/getexpresscheckout.php',	
-	'CANCELURL' => 'http://'.$_SERVER['HTTP_HOST'].'/PayPalPaymentsProClassicLite/examples/expresscheckout/cancel.php',
+	'RETURNURL' => 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/billingagreements\/setec.php/','getexpresscheckout.php',$_SERVER['SCRIPT_NAME']),
+	'CANCELURL' => 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/billingagreements\/setec.php/','cancel.php',$_SERVER['SCRIPT_NAME']),
 	'PAYMENTREQUEST_0_AMT' => '100.00',
 	'PAYMENTREQUEST_0_CURRENCYCODE' => 'USD',
 	'PAYMENTREQUEST_0_PAYMENTACTION' => 'Sale',  //Valid values are Sale,Authorization,Order

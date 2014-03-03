@@ -13,6 +13,7 @@
 	<div class="col-md-12">
 		<h3>Express Checkout</h3>
 		<div><a href="expresscheckout/setexpresscheckout.php">Set Express Checkout</a></div>
+		<div><a href="expresscheckout/setexpresscheckout-guest.php">Set Express Checkout - Guest Checkout</a></div>
 		<div><a href="expresscheckout/setexpresscheckout-lineitems.php">Set Express Checkout - With Line Items</a></div>
 		<div><a href="expresscheckout/billingagreements/setec.php">Create Billing Agreement</a></div>
 		<div><a href="expresscheckout/recurringpayments/setec.php">Create Recurring Payments Profile</a></div>

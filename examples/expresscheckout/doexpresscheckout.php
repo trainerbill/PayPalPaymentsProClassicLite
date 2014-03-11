@@ -33,6 +33,9 @@ $variables = array(
 	'PAYMENTREQUEST_0_AMT' => $getresponse['AMT'],
 );
 
+if(isset($getresponse['PAYMENTREQUEST_0_CUSTOM']) && $getresponse['PAYMENTREQUEST_0_CUSTOM'] == 'OAC')
+	$variables['PAYMENTREQUEST_0_PAYMENTACTION'] = 'Order';
+	
 //Place the variables onto the stack
 $doec->pushVariables($variables);
 
@@ -58,18 +61,22 @@ include(__DIR__.'/../inc/header.php');
 include(__DIR__.'/../inc/apicalloutput.php');
 ?>
 
-<a class="btn btn-default" href="../index.php">Back to Menu</a><br/>
+<a class="btn btn-default" href="../index.php">Back to Menu</a>
 
 <?php if(isset($getresponse['CUSTOM'])) :?>
-<p>
+
 	<?php if($getresponse['CUSTOM'] == 'BillingAgreement'):?>
 	<a class="btn btn-default" href="billingagreements/updatebillingagreement.php?baid=<?php echo $rvars['BILLINGAGREEMENTID']?>">Update Billing Agreement</a>
 	<a class="btn btn-default" href="../referencetransactions/rt.php?baid=<?php echo $rvars['BILLINGAGREEMENTID']?>">Do Reference Transaction</a>
 	<?php endif;?>
 
 	<?php if($getresponse['CUSTOM'] == 'RecurringPayment'):?>
-	
 	<a class="btn btn-default" href="recurringpayments/createrecurringpaymentsprofile.php?token=<?php echo $rvars['TOKEN'] ?>">Create Recurring Payment Profile</a>
 	<?php endif;?>
+	
+	<?php if($getresponse['CUSTOM'] == 'OAC'):?>
+	<a class="btn btn-default" href="oac/doauthorization.php?trxid=<?php echo $rvars['PAYMENTINFO_0_TRANSACTIONID'] ?>">Do Authorization</a>
+	<?php endif;?>
+	
 <?php endif;?>
 <?php include(__DIR__.'/../inc/footer.php');?>

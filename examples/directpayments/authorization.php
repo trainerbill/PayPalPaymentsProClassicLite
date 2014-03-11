@@ -24,6 +24,8 @@ $variables = array(
 	'ZIP'		=> '90210',
 );
 
+
+
 //Place the variables onto the stack
 $dcc->pushVariables($variables);
 

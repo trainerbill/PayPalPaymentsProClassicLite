@@ -12,7 +12,8 @@ $variables = array(
 	'CANCELURL' => 'https://'.$_SERVER['HTTP_HOST'].preg_replace('/setexpresscheckout.php/','cancel.php',$_SERVER['SCRIPT_NAME']),	
 	'PAYMENTREQUEST_0_AMT' => '100.00',
 	'PAYMENTREQUEST_0_CURRENCYCODE' => 'USD',
-	'PAYMENTREQUEST_0_PAYMENTACTION' => 'Sale',  //Valid values are Sale,Authorization,Order
+	'PAYMENTREQUEST_0_PAYMENTACTION' => 'Sale',  //Valid values are Sale,Authorization,Order,
+	
 );
 
 //Set HTTPS for lightbox
@@ -67,7 +68,7 @@ include(__DIR__.'/../inc/apicalloutput.php');
 </script>
 
 
-<a href="https://www.sandbox.paypal.com/checkoutnow?token=<?php echo $rvars['TOKEN']?>" data-paypal-button="true"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" /></a>
+<a href="https://www.sandbox.paypal.com/checkoutnow?token=<?php echo $rvars['TOKEN']?>" data-paypal-button="true" ><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" /></a>
 
 <?php endif;?>
 <?php 

@@ -60,8 +60,7 @@ include('../../inc/apicalloutput.php');
 
 <?php if($setec->expresscheckout_settings['experience'] == 'redirect'):?>
 <a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=<?php echo $rvars['TOKEN'] ?>">Redirect to PayPal</a>
-<?php elseif($setec->expresscheckout_settings['experience'] == 'lightbox'): ?>
-<a href="https://www.sandbox.paypal.com/checkoutnow?token=<?php echo $rvars['TOKEN']?>" data-paypal-button="true">Lightbox</a>
+
 <?php endif;?>
 
 

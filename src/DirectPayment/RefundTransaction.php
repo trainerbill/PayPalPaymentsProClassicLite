@@ -15,7 +15,7 @@ class RefundTransaction extends PayPalAPI{
 		
 		//setup validation parameters.  Make sure these are present before executing call.
 		$this->validation_parameters = array(
-				'TRANSACTIONID',
+				
 				'REFUNDTYPE',
 		);
 		

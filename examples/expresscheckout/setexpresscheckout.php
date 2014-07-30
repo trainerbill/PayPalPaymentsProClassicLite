@@ -11,11 +11,14 @@ $variables = array(
 	'RETURNURL' => 'https://'.$_SERVER['HTTP_HOST'].preg_replace('/setexpresscheckout.php/','getexpresscheckout.php',$_SERVER['SCRIPT_NAME']),	
 	'CANCELURL' => 'https://'.$_SERVER['HTTP_HOST'].preg_replace('/setexpresscheckout.php/','cancel.php',$_SERVER['SCRIPT_NAME']),	
 	'PAYMENTREQUEST_0_AMT' => '100.00',
+	'PAYMENTREQUEST_0_ITEMAMT' => '100.00',
 	'PAYMENTREQUEST_0_CURRENCYCODE' => 'USD',
-	'PAYMENTREQUEST_0_PAYMENTACTION' => 'Sale',  //Valid values are Sale,Authorization,Order,
-	
+	'PAYMENTREQUEST_0_PAYMENTACTION' => 'Order',  //Valid values are Sale,Authorization,Order,	
 );
 
+if (isset($_GET['version'])) {
+	$variables['VERSION'] = $_GET['version'];
+}
 
 
 //Place the variables onto the stack
@@ -45,7 +48,7 @@ include(__DIR__.'/../inc/apicalloutput.php');
 
 
 <?php if($setec->expresscheckout_settings['experience'] == 'redirect'):?>
-<a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=<?php echo $rvars['TOKEN'] ?>"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" /></a>
+<a href="https://www.sandbox.paypal.com/checkoutnow?useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=<?php echo $rvars['TOKEN'] ?>"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" /></a>
 <?php elseif($setec->expresscheckout_settings['experience'] == 'minibrowser'): ?>
 <script>
 	(function(d, s, id) {

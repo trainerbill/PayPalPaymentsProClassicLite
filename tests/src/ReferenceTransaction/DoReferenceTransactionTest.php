@@ -55,7 +55,7 @@ class DoReferenceTransactionTest extends \PHPUnit_Framework_TestCase
 		$rt->pushVariables($variables);
 		$rt->executeCall();
 		$response = $rt->getCallResponseDecoded();
-		
+		print_r($response);
 		$this->assertEquals($response['ACK'],'Success');
 	}
 	

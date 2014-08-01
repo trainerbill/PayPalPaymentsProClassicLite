@@ -13,12 +13,17 @@ $variables = array(
 	'PAYMENTREQUEST_0_AMT' => '100.00',
 	'PAYMENTREQUEST_0_ITEMAMT' => '100.00',
 	'PAYMENTREQUEST_0_CURRENCYCODE' => 'USD',
-	'PAYMENTREQUEST_0_PAYMENTACTION' => 'Order',  //Valid values are Sale,Authorization,Order,	
+	'PAYMENTREQUEST_0_PAYMENTACTION' => 'Sale',  //Valid values are Sale,Authorization,Order,	
 );
 
 if (isset($_GET['version'])) {
+	
 	$variables['VERSION'] = $_GET['version'];
+	if ($variables['VERSION'] < 62 ) {
+		$variables['AMT'] = '100.00';
+	}
 }
+
 
 
 //Place the variables onto the stack

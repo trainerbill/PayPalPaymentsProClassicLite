@@ -54,60 +54,12 @@ include(__DIR__.'/../inc/apicalloutput.php');
 
 <?php if($setec->expresscheckout_settings['experience'] == 'redirect'):?>
 <a href="https://www.sandbox.paypal.com/checkoutnow?useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=<?php echo $rvars['TOKEN'] ?>"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" /></a>
-<?php elseif($setec->expresscheckout_settings['experience'] == 'minibrowser'): ?>
-<script>
-	(function(d, s, id) {
-		var js, ref = d.getElementsByTagName(s)[0];
-		if (!d.getElementById(id)){js = d.createElement(s);
-		js.id = id; js.async = true;
-		js.src = "//www.paypalobjects.com/js/external/paypal.v1.js";
-		ref.parentNode.insertBefore(js, ref);
-		}}(document, "script", "paypal-js"));
-</script>
+<?php elseif($setec->expresscheckout_settings['experience'] == 'minibrowser') :
+	include( __DIR__ . '/../inc/mbjs.php');
+	include( __DIR__ . '/../inc/mbtokenselect.php');
+?>
 
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-resource.js"></script>
-<script type="text/javascript">
 
-	var application = angular.module('application', ["ngResource"])
-	.factory('TokenResource', function ($resource) {
-
-	    return $resource('../inc/async-token.php', {}, {
-	        
-	        get: {method: 'get', params: {}}
-
-	    });
-	})
-	.controller('Token', function ($scope, $filter, TokenResource) {
-		$scope.execute = function () {
-			
-			//Mini browser initing
-		    PAYPAL.apps.Checkout.initXO();
-
-			TokenResource.get({}, function (data) {
-				var url = 'https://www.sandbox.paypal.com/checkoutnow?useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=' + data.token;
-				PAYPAL.apps.Checkout.startFlow(url);
-			});
-		};
-		
-		
-	});
-</script>
-
-<div data-ng-app="application" data-ng-controller="Token">
-	Select how you want to get the EC-Token
-	<select data-ng-model="requesttype" class="form-control">
-	  <option value=""></option>
-	  <option value="normal">Normal</option>
-	  <option value="ajax">Ajax</option>
-	</select>
-	<div data-ng-show="requesttype === 'normal'">
-		<a href="https://www.sandbox.paypal.com/checkoutnow?useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=<?php echo $rvars['TOKEN']?>" data-paypal-button="true"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" /></a>
-	</div>
-	<div data-ng-show="requesttype === 'ajax'">
-		<a data-ng-click="execute()"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" /></a>
-	</div>
-</div>
 
 
 

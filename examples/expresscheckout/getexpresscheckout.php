@@ -40,6 +40,10 @@ include(__DIR__.'/../inc/header.php');
 include(__DIR__.'/../inc/apicalloutput.php');
 ?>
 
+<?php if($getec->expresscheckout_settings['experience'] == 'minibrowser') {
+	include( __DIR__ . '/../inc/mbjs.php');
+}?>
+
 <a class="btn btn-default" href="doexpresscheckout.php?token=<?php echo $rvars['TOKEN'] ?>&payerid=<?php echo $rvars['PAYERID']?>">Do Express Checkout</a>
 
 <?php if(isset($rvars['CUSTOM'])) :?>

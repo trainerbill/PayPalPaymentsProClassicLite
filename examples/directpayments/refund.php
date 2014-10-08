@@ -12,7 +12,7 @@ $dcc = new RefundTransaction();
 //Place any variables into this array:  https://developer.paypal.com/webapps/developer/docs/classic/api/merchant/RefundTransaction_API_Operation_NVP/
 $variables = array(
 	
-	'REFUNDTYPE' => 'Full',
+	'REFUNDTYPE' => 'Partial',
 );
 
 if(isset($_GET['trxid'])) 
@@ -22,9 +22,10 @@ if(isset($_GET['trxid']))
 elseif(isset($_GET['payerid']))
 {
 	$variables['PAYERID'] = $_GET['payerid'];
-	$variables['AMT'] = '10.00';
+	
 }
 
+$variables['AMT'] = '10.00';
 //Place the variables onto the stack
 $dcc->pushVariables($variables);
 

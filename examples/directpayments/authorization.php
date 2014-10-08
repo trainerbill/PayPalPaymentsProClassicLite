@@ -21,7 +21,7 @@ $variables = array(
 	'CITY'		=> 'Bedrock',
 	'STATE'		=> 'CA',
 	'COUNTRYCODE' => 'US', 
-		'CURRENCYCODE' => 'CAD',
+	'CURRENCYCODE' => 'USD',
 	'ZIP'		=> '90210',
 );
 

@@ -13,12 +13,12 @@
 	})
 	.controller('Token', function ($scope, $filter, TokenResource) {
 		$scope.execute = function () {
-			
+			console.log(PAYPAL);
 			//Mini browser initing
 		    PAYPAL.apps.Checkout.initXO();
 
 			TokenResource.get({}, function (data) {
-				var url = 'https://www.sandbox.paypal.com/checkoutnow?useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=' + data.token;
+				var url = 'https://www<?php (($setec->expresscheckout_settings['environment'] === 'sandbox') ? print '.sandbox' : '' )?>.paypal.com/checkoutnow?useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=' + data.token;
 
 				//Start MiniBrowser
 				PAYPAL.apps.Checkout.startFlow(url);
@@ -39,9 +39,9 @@
 	  <option value="ajax">Ajax</option>
 	</select>
 	<div data-ng-show="requesttype === 'normal'">
-		<a href="https://www.sandbox.paypal.com/checkoutnow?useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=<?php echo $rvars['TOKEN']?>" data-paypal-button="true"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" /></a>
+		<a href="https://www<?php (($setec->expresscheckout_settings['environment'] === 'sandbox') ? print '.sandbox' : '' )?>.paypal.com/checkoutnow?force_login=true&useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=<?php echo $rvars['TOKEN']?>" data-paypal-button="true" data-paypal-sandbox="true"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" /></a>
 	</div>
 	<div data-ng-show="requesttype === 'ajax'">
-		<a data-ng-click="execute()"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" /></a>
+		<a data-ng-click="execute()" data-paypal-sandbox="true" ><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" /></a>
 	</div>
 </div>

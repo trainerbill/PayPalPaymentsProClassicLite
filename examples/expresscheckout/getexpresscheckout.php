@@ -3,6 +3,10 @@ namespace PayPalPaymentsProClassicLite\ExpressCheckout;
 require(__DIR__.'/../../src/ExpressCheckout/GetExpressCheckout.php');
 use PayPalPaymentsProClassicLite\ExpressCheckout\GetExpressCheckout;
 
+if(isset($_GET['order_id']) && $_GET['retry_authorization'] == 'true') {
+	header('Location: oac/doauthorization.php?trxid='.$_GET['order_id']);
+}
+
 if(!isset($_GET['token']))
 	die('You need to provide a token.');
 

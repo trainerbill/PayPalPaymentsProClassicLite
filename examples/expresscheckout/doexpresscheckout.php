@@ -63,6 +63,10 @@ include(__DIR__.'/../inc/apicalloutput.php');
 
 <a class="btn btn-default" href="../index.php">Back to Menu</a>
 
+<?php if($rvars['ACK'] == 'Failure' && ( $rvars['L_ERRORCODE0'] == '10486' || $rvars['L_ERRORCODE0'] == '10422') ) :?>
+		<a class="btn btn-default" href="https://www.sandbox.paypal.com/checkoutnow?token=<?php echo $getresponse['TOKEN'] ?>">Choose New Funding Source</a>
+<?php endif;?>
+
 <?php if(isset($getresponse['CUSTOM'])) :?>
 
 	<?php if($getresponse['CUSTOM'] == 'BillingAgreement'):?>

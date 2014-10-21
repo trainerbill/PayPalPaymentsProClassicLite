@@ -41,7 +41,9 @@ include(__DIR__.'/../../inc/apicalloutput.php');
 ?>
 
 <a class="btn btn-default" href="../index.php">Back to Menu</a>
-
+<?php if($rvars['ACK'] == 'Failure' && ( $rvars['L_ERRORCODE0'] == '10486' || $rvars['L_ERRORCODE0'] == '10422') ) :?>
+		<a class="btn btn-default" href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&order_id=<?php echo $_GET['trxid'] ?>">Choose New Funding Source</a>
+<?php endif;?>
 <?php if($rvars['ACK'] == 'Success'):?>
 <a class="btn btn-default" href="../../directpayments/void.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Void Transaction</a>
 <a class="btn btn-default"href="../../directpayments/capture.php?trxid=<?php echo $rvars['TRANSACTIONID']?>">Capture Transaction</a>
